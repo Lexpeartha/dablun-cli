@@ -1,0 +1,17 @@
+{
+  "name": "dablun-cli",
+  "version": "1.0.0",
+  "description": "CLI for everything related to cryptocurrencies, money, inflation etc.",
+  "main": "index.js",
+  "bin": "./bin/dablun.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "money",
+    "finance"
+  ],
+  "author": "Lexpeartha",
+  "license": "MIT"
+}
