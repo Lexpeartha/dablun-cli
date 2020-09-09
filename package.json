@@ -1,6 +1,6 @@
 {
   "name": "dablun-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "CLI for everything related to cryptocurrencies, money, inflation etc.",
   "main": "index.js",
   "bin": "./bin/dablun.js",
