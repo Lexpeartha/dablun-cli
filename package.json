@@ -13,5 +13,12 @@
     "finance"
   ],
   "author": "Lexpeartha",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "colors": "^1.4.0",
+    "commander": "^6.1.0",
+    "configstore": "^5.0.1",
+    "inquirer": "^7.3.3"
+  }
 }
