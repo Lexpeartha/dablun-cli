@@ -17,8 +17,18 @@ const key = {
 
         const key = keyManager.setKey(input.key);
 
-        if(key) {
+        if (key) {
             console.log("API key set");
+        }
+    },
+    async setValueManually(keyValue) {
+        try {
+            const keyManager = new KeyManager();
+            const keyValue = keyManager.getKey(keyValue);
+
+            return keyValue;
+        } catch (err) {
+            console.error(err.message);
         }
     },
     show() {
@@ -29,7 +39,7 @@ const key = {
             console.log("Current API key is: " + key);
 
             return key;
-        } catch(err) {
+        } catch (err) {
             console.error(err.message);
         }
     },
@@ -39,7 +49,7 @@ const key = {
             keyManager.removeKey();
 
             console.log("API key has been removed!");
-        } catch(err) {
+        } catch (err) {
             console.error(err.message);
         }
     }
