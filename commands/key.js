@@ -1,34 +1,27 @@
-const inquirer = require("inquirer");
-
 const KeyManager = require("../lib/KeyManager");
+const InputHandler = require("../lib/InputHandler");
 const isRequired = require("../utils/validation").isRequired;
 
 const key = {
     async set() {
         const keyManager = new KeyManager();
-        const input = await inquirer.prompt([
+
+        InputHandler.promptInput([
             {
-                type: "input",
                 name: "key",
                 message: "Enter API key",
                 validate: isRequired
             }
-        ]);
+        ]).then(answer => {
+            keyManager.setKey(answer.key);
+        }).catch(error => {
+            console.log(error.message);
+        });
 
-        const key = keyManager.setKey(input.key);
+        const key = keyManager.key;
 
         if (key) {
             console.log("API key set");
-        }
-    },
-    async setValueManually(keyValue) {
-        try {
-            const keyManager = new KeyManager();
-            const keyValue = keyManager.getKey(keyValue);
-
-            return keyValue;
-        } catch (err) {
-            console.error(err.message);
         }
     },
     show() {
