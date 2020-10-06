@@ -18,8 +18,10 @@ to install all dependencies, and:
 npm link
 ```
 
-to make CLI available globally on machine
-
+to make CLI available globally on machine. After this, you should be able to run this command
+```shell
+dablun-cli -h
+```
 
 
 ### Contribution guide
