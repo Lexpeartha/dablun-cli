@@ -1,5 +1,6 @@
 const KeyManager = require("../lib/KeyManager");
 const InputHandler = require("../lib/InputHandler");
+const { consoleSuccess, consoleInfo, consoleError } = require("../lib/ConsoleHandler");
 const isRequired = require("../utils/validation").isRequired;
 
 const key = {
@@ -15,13 +16,13 @@ const key = {
         ]).then(answer => {
             keyManager.setKey(answer.key);
         }).catch(error => {
-            console.log(error.message);
+            consoleError(error.message);
         });
 
         const key = keyManager.key;
 
         if (key) {
-            console.log("API key set");
+            consoleSuccess("API key set successfully!")
         }
     },
     show() {
@@ -29,7 +30,7 @@ const key = {
             const keyManager = new KeyManager();
             const key = keyManager.getKey();
 
-            console.log("Current API key is: " + key);
+            consoleInfo("Current API key is: " + key);
 
             return key;
         } catch (err) {
@@ -41,9 +42,9 @@ const key = {
             const keyManager = new KeyManager();
             keyManager.removeKey();
 
-            console.log("API key has been removed!");
+            consoleInfo("API key has been removed!");
         } catch (err) {
-            console.error(err.message);
+            consoleError(err.message);
         }
     }
 };
