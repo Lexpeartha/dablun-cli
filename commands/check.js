@@ -1,5 +1,6 @@
 const ApiService = require("../lib/ApiService");
 const KeyManager = require("../lib/KeyManager");
+const { consoleError } = require("../lib/ConsoleHandler");
 
 const check = {
     async price(cmd) {
@@ -7,11 +8,9 @@ const check = {
             const keyManager = new KeyManager();
             const apiService = new ApiService(keyManager.getKey());
 
-            const priceOutputData = await apiService.getPriceData(cmd.coin, cmd.cur);
-
-            console.log(priceOutputData);
+            await apiService.getPriceData(cmd.coin, cmd.cur);
         } catch (err) {
-            console.error(err.message);
+            consoleError(err.message);
         }
     }
 }
