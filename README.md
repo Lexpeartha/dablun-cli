@@ -1,7 +1,6 @@
 # Dablun CLI: For all your crypto-currency needs!
 
-Extended version of the app covered by [Traversy Media's tutorial]()
-
+Extended version of the app covered by [Traversy Media's tutorial](https://www.youtube.com/watch?v=-6OAHsde15E)
 
 
 ### Installation process
