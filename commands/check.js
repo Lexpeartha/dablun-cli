@@ -8,9 +8,17 @@ const check = {
 			const keyManager = new KeyManager();
 			const apiService = new ApiService(keyManager.getKey());
 
-			await apiService.getPriceData(cmd.coin, cmd.cur);
-		} catch (err) {
-			consoleError(err.message);
+			if(cmd.top != null) {
+				await apiService.getTopCoinData(cmd.cur, cmd.top);
+			}
+			else if(cmd.coin != null) {
+				await apiService.getSpecificPriceData(cmd.coin, cmd.cur);
+			}
+			else {
+				await apiService.getGeneralPriceData(cmd.cur);
+			}
+		} catch (error) {
+			consoleError(`${error.name}: ${error.message}`);
 		}
 	}
 };
